@@ -35,8 +35,6 @@ exec swaync &
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/violet_evergarden50.png fill
 #
 # Example configuration:
 #
@@ -269,3 +267,4 @@ client.placeholder      #E3DCC9 #E3DCC9 #E3DCC9 #E3DCC9
 # }
 
 include /etc/sway/config.d/*
+include ~/.config/sway/wallpaper
