@@ -1,0 +1,118 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "spacing": 5,
+    "modules-left": [
+      "sway/workspaces",
+    ],
+    "modules-center": [
+      "clock",
+      "tray"
+    ],
+    "modules-right": [
+      "pulseaudio",
+      // "backlight",
+      "battery",
+      "network",
+    ],
+    "network#speed_download": {
+        "interval": 1,
+        "format": "{ifname}",
+        "format-wifi": "    {bandwidthDownBytes}",
+        "format-ethernet": "    {bandwidthDownBytes}",
+        "format-disconnected": "x",
+        "min-length": 12,
+        "max-length": 12
+    },
+    "network#speed_upload": {
+        "interval": 1,
+        "format": "{ifname}",
+        "format-wifi": "    {bandwidthUpBytes}",
+        "format-ethernet": "    {bandwidthUpBytes}",
+        "format-disconnected": "x",
+        "min-length": 12,
+        "max-length": 12
+    },
+    "clock": {
+      "format": "{:%d %A %H:%M:%S}",
+      "tooltip-format": "{:%A %B %d %Y %H:%M:%S}",
+      "interval": 1
+    },
+    "cpu": {
+      "format": " {usage}%",
+      "min-length": 8,
+      "interval": 1
+    },
+    "memory": {
+      "format": " {}%",
+      "min-length": 8,
+      "interval": 1
+    },
+    "backlight": {
+      "format": "{icon} {percent}%",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "battery": {
+            "states": {
+              "warning": 30,
+              "critical": 15
+            },
+            "format": "{icon}   {capacity}% ",
+            "tooltip-format": "{capacity}%",
+            "format-charging": " {icon}   {capacity}% ",
+            "format-plugged": "{icon}   {capacity}% ",
+            "min-length": 7,
+            "format-icons": [
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            "interval": 1
+          },
+    "network": {
+      "format-wifi": "{signalStrength}% {essid}",
+      "tooltip": true,
+      "on-click": "nm-applet",  // This is the thing
+      "interval": 1,
+      "max-length": 15
+    },
+    "pulseaudio": {
+      "scroll-step": 5,
+      "format": "{icon}   {volume}%   {format_source}",
+      "format-bluetooth": " {icon} {volume}% {format_source}",
+      "format-bluetooth-muted": "  {icon} {format_source}",
+      "format-muted": " 0% {format_source}",
+      "format-source": " {volume}%",
+      "format-source-muted": "",
+      "format-icons": {
+        "default": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "min-length": 16,
+      "on-click": "pavucontrol",
+      "on-click-right": "foot -a pw-top pw-top"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    }
+  }
+]
+
