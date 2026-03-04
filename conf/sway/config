@@ -83,7 +83,9 @@ input type:keyboard {
     bindsym $mod+e exec $filemanager
     bindsym $mod+z exec ~/AppImages/Obsidian.AppImage
     bindsym $mod+shift+w exec pkill waybar && sleep 1 && waybar &
-
+    bindsym $mod+s exec grim -g "$(slurp)"
+    set $screenshot_out $(xdg-user-dir PICTURES)/screenshots/screenshot-$(date +"%Y%m%d-%H%M%S").webp
+    bindsym $mod+shift+s exec grim -g "$(slurp)" | magick - -quality 85 $screenshot_out
     # Kill focused window
     bindsym $mod+w kill
 
@@ -163,7 +165,7 @@ input type:keyboard {
     bindsym $mod+shift+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    # bindsym $mod+s layout stacking
     # bindsym $mod+w layout tabbed
     bindsym $mod+shift+e layout toggle split
 
