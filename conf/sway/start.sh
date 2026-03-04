@@ -2,6 +2,11 @@
 
 cd $HOME
 
+# start ssh agent
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
+	eval "$(ssh-agent -s)"
+fi
+
 export MOZ_ENABLE_WAYLAND=1
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
